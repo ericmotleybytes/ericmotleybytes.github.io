@@ -1,10 +1,14 @@
 Resources:
-- Documantation: https://packaging.python.org/guides/distributing-packages-using-setuptools
+- Documentation:
+-- https://packaging.python.org/guides/distributing-packages-using-setuptools
+-- https://packaging.python.org/guides/using-testpypi
+-- https://github.com/pypa/sampleproject/blob/master/setup.py
+
 - Production PyPI site: https://pypi.org/
 - Test PyPI site: https://test.pypi.org/
 - API Tokens: https://pypi.org/manage/account/#api-tokens
 - Spec for .pypirc: https://pypi.org/manage/account/#api-tokens
-- PyPI uploaded project info: httpsL//pypi.org/project/<projectname>
+- PyPI uploaded project info: https://pypi.org/project/<projectname>
 
 Build Source Distribution:
     $ python setup.py sdist
@@ -15,8 +19,14 @@ Build Distribution with Pure Python Wheel:
 
 Upload to TestPyPI:
     # Note, never use insecure legacy commands "python setup.py register" or "python setup.py upload".
-    twine upload dist/*   # for production upload
-    twine upload --repository testpypi dist/*    # must also have ~/.pypirc file!
+    # Note: Must have setup ~/.pypirc file.
+    twine register dist/<package>-<version>.tar.gz -r testpypi
+    twine upload dist/* -r testpypi
+
+Upload to PyPI:
+    # Note: Must have setup ~/.pypirc file.
+    $ twine register dist/<package>-<version>.tar.gz
+    $ twine upload dist/*
 
 Pip test installs:
     pip install --index-url https://test.pypi.org/simple/ <your-package>  # install from testpypi

@@ -1,0 +1,11 @@
+sphinx-notes:
+- https://www.sphinx-doc.org/en/master/
+- https://sphinx-rtd-tutorial.readthedocs.io/en/latest/docstrings.html
+- https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html
+- https://www.sphinx-doc.org/en/1.8/theming.html
+
+See conf.py...
+
+Build docs:
+    $ sphinx-apidoc -f -o docs/source <projectdir>
+    $ sphinx-build -b html -c <conf-file-dir> docs/source docs/build
