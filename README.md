@@ -1,2 +1,3 @@
 # ericmotleybytes.github.io
-Information about some of Eric Christiansen's projects.
+See https://ericmotleybytes.github.io/ for information about some of
+Eric Christiansen's projects.
